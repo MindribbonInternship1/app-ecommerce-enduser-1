@@ -13,14 +13,15 @@ import com.imran.gshop.databinding.ActivityLoginBinding
 
 class AddressActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddressBinding
-    private lateinit var preferences :SharedPreferences
 
+    private lateinit var preferences :SharedPreferences
     private lateinit var totalCost : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAddressBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         preferences = this.getSharedPreferences("user", MODE_PRIVATE)
 
         totalCost = intent.getStringExtra("totalCost")!!
@@ -70,9 +71,8 @@ class AddressActivity : AppCompatActivity() {
     }
 
     private fun loadUserInfo() {
-
         Firebase.firestore.collection("users")
-            .document(preferences.getString("number","7278534705")!!)
+            .document(preferences.getString("number","")!!)
             .get().addOnSuccessListener {
                 binding.etUserName.setText(it.getString("userName"))
                 binding.etUserNumber.setText(it.getString("userPhoneNumber"))

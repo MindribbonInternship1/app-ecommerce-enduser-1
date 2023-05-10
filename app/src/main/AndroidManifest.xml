@@ -2,10 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-<!--    <uses-permission android:name="android.permission.READ_SMS"/>-->
-<!--    <uses-permission android:name="android.permission.RECEIVE_SMS"/>-->
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- <uses-permission android:name="android.permission.READ_SMS"/> -->
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,6 +21,9 @@
         android:theme="@style/Theme.GShop"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".activities.AllOrdersActivity"
+            android:exported="false" />
         <activity
             android:name=".activities.CheckoutActivity"
             android:exported="false" />
@@ -35,7 +42,6 @@
         <activity
             android:name=".activities.ProductDetailActivity"
             android:exported="false" />
-
         <activity
             android:name=".activities.CategoryActivity"
             android:exported="false" />

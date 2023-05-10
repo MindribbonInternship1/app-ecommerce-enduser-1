@@ -50,8 +50,8 @@ class LoginActivity : AppCompatActivity() {
             .build()
         PhoneAuthProvider.verifyPhoneNumber(options)
     }
-
-    val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+//***************** ################# *************
+    private val callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
 
@@ -66,9 +66,9 @@ class LoginActivity : AppCompatActivity() {
             token: PhoneAuthProvider.ForceResendingToken
         ) {
             builder.dismiss()
-            val intent  = Intent(this@LoginActivity,OTPActivity::class.java)
+            val intent  = Intent(this@LoginActivity, OTPActivity::class.java)
             intent.putExtra("verificationId",verificationId)
-            intent.putExtra("number",binding.userNumber.text.toString())
+            intent.putExtra("number", binding.userNumber.text.toString())
             startActivity(intent)
         }
     }

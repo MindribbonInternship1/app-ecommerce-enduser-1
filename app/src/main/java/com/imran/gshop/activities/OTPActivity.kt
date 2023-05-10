@@ -21,17 +21,17 @@ class OTPActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnVerify.setOnClickListener{
-            if (binding.userOtp.text!!.isEmpty()){
+            if (binding.userOTP.text!!.isEmpty()){
                 Toast.makeText(this, "Please enter OTP", Toast.LENGTH_SHORT).show()
         }else{
-            verifyUser(binding.userOtp.text.toString())
+            verifyUser(binding.userOTP.text.toString())
         }
         }
     }
 
     private fun verifyUser(otp: String) {
-        val credential = PhoneAuthProvider.getCredential(intent.getStringExtra("verificationId")!!,otp
-        )
+        val credential = PhoneAuthProvider.getCredential(
+            intent.getStringExtra("verificationId")!!, otp)
         signInWithPhoneAuthCredential(credential)
     }
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential) {
@@ -41,9 +41,7 @@ class OTPActivity : AppCompatActivity() {
 
                     val preferences = this.getSharedPreferences("user", MODE_PRIVATE)
                     val editor = preferences.edit()
-
-
-                    editor.putString("name",intent.getStringExtra("number")!!)
+                    editor.putString("number",intent.getStringExtra("number")!!)
                     editor.apply()
 
                     startActivity(Intent(this,MainActivity::class.java))

@@ -1,5 +1,6 @@
 package com.imran.gshop.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.imran.gshop.R
+import com.imran.gshop.activities.AddressActivity
+//import com.imran.gshop.activities.AllOrdersActivity
 import com.imran.gshop.adapter.AllOrderAdapter
 import com.imran.gshop.databinding.FragmentMoreBinding
 import com.imran.gshop.model.AllOrderModel
@@ -40,7 +43,13 @@ private lateinit var list : ArrayList<AllOrderModel>
             }
             binding.recyclerViewMore.adapter = AllOrderAdapter(list,requireContext())
         }
+//        binding.tvYourOrders.setOnClickListener{
+//            val intent = Intent(context,AllOrdersActivity ::class.java)
+//            startActivity(intent)
+//        }
         return binding.root
-
     }
+
+
+
 }
