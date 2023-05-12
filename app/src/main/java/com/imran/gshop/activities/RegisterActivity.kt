@@ -36,7 +36,7 @@ class RegisterActivity : AppCompatActivity() {
 
     private fun storeData() {
         val builder = AlertDialog.Builder(this)
-            .setTitle("Loading...")
+            .setTitle("Loading....")
             .setMessage("Please Wait")
             .setCancelable(false)
             .create()
@@ -72,3 +72,5 @@ class RegisterActivity : AppCompatActivity() {
         finish()
     }
 }
+
+

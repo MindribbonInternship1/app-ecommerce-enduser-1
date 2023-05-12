@@ -2,12 +2,8 @@ package com.imran.gshop.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
-import android.view.View.GONE
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
 import com.imran.gshop.databinding.AllOrderDetailItemBinding
 import com.imran.gshop.model.AllOrderModel
 

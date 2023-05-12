@@ -18,16 +18,15 @@ import org.json.JSONObject
 
 class CheckoutActivity : AppCompatActivity(),PaymentResultListener {
     private lateinit var binding: ActivityCheckoutBinding
-
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityCheckoutBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         val checkout = Checkout()
-        checkout.setKeyID("<rzp_test_7nbtcTEzzvqGs8>")
+        checkout.setKeyID("rzp_test_6CPvOZ0r8NCrCV")
 
-        val price = intent.getStringExtra("totalCost")
+        val price = intent.getStringExtra("totalCost")!!
 
         try {
             val options = JSONObject()
@@ -62,7 +61,6 @@ class CheckoutActivity : AppCompatActivity(),PaymentResultListener {
         }
     }
 
-
     private fun fetchData(productId: String?) {
 
         val dao = AppDatabase.getInstance(this).productDao()
@@ -94,7 +92,7 @@ class CheckoutActivity : AppCompatActivity(),PaymentResultListener {
         data["price"] = price!!
         data["productId"] = productId
         data["status"] = "Ordered"
-        data["userId"] = preferences.getString("number", "")!!
+        data["userId"] = preferences.getString("number","")!!
 
         val firestore = Firebase.firestore.collection("allOrders")
         val key = firestore.document().id
