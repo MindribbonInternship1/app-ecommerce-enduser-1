@@ -17,7 +17,6 @@ import com.imran.gshop.adapter.AllOrderAdapter
 import com.imran.gshop.databinding.FragmentMoreBinding
 import com.imran.gshop.model.AllOrderModel
 
-
 class MoreFragment : Fragment() {
 
 private lateinit var binding : FragmentMoreBinding
@@ -43,13 +42,8 @@ private lateinit var list : ArrayList<AllOrderModel>
             }
             binding.recyclerViewMore.adapter = AllOrderAdapter(list,requireContext())
         }
-//        binding.tvYourOrders.setOnClickListener{
-//            val intent = Intent(context,AllOrdersActivity ::class.java)
-//            startActivity(intent)
-//        }
+
         return binding.root
     }
-
-
 
 }
